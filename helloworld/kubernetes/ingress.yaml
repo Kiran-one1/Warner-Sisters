@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: hwapp-ingress
+spec:
+  rules:
+    - host: hwapp.local  # Update with your desired hostname
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: hwapp-service
+                port:
+                  number: 80
